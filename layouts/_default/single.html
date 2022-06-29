@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<article class="flex-l flex-wrap justify-between w-80 center ph3">
+
+    <div class="mt2">
+        <h1 class="f1 mt3 mb1 font-zk-sans-serif">
+            {{- .Title -}}
+        </h1>
+        <div class="mv3 f6 tracked-mega dark-blue font-zk-sans-serif">
+            <time class="dib">
+                {{- dateFormat "2006-01-02" .Date -}}
+            </time>
+            <span class="dib"> - 阅读{{ .ReadingTime}}分钟</span>
+            <span class="dib"> - {{ .WordCount }}字</span>
+        </div>
+    </div>
+
+    <div id="article" class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray pr4-l w-100">
+        {{- partial "page-toc.html" . -}}
+        {{- .Content -}}
+    </div>
+
+</article>
+{{ end }}

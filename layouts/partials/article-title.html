@@ -1,0 +1,23 @@
+<div class="w-100 items-center">
+    <span class="dib mr3 f6 dark-blue">
+        [{{- dateFormat "2006-01-02" .Date -}}]
+    </span >
+    <span class="f3 lh-copy nested-links-black">
+        <a href="{{ .Permalink }}" class="link near-black">
+            {{ .Title }}
+        </a>
+    </span>
+    <span class="dib ml3 f6 dark-blue">
+        <ul class="pa0 ma0">
+            {{ if .Params.tags }}
+            {{ range .Params.tags }}
+            <li class="dib mr2 nested-links">
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="no-underline ba br3 ph2">
+                    {{- . -}}
+                </a>
+            </li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </span>
+</div>

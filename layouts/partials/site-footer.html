@@ -1,0 +1,9 @@
+<div class="bg-navy pa2 flex justify-between items-center h-100">
+    <a class="f4 fw4 hover-white no-underline white-80 dib pl4" href="{{ .Site.BaseURL }}">
+        &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ now.Format "2006"}} {{ end }}
+    </a>
+
+    <span class="f4 fw4 hover-white white-80 dib pr4">
+        联系：zoukang89105@163.com
+    </span>
+</div>

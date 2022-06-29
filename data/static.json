@@ -1,0 +1,7 @@
+{
+  "css": [
+    "static/css/tachyons.min.css",
+    "static/css/zk-notes.css"
+  ],
+  "js": []
+}

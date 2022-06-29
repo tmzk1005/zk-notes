@@ -1,0 +1,25 @@
+baseURL: http://zk.com/
+languageCode: zh-CN
+title: ZK-NOTES
+
+defaultContentLanguage: "zh"
+hasCJKLanguage: true
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: false
+    noClasses: true
+    # style的可选值见 https://xyproto.github.io/splash/docs/all.html
+    # 这里列出几个: 
+    # 浅色: monokailight solarized-light abap igor manni paraiso-light perldoc
+    # 深色: monokai solarized pygments paraiso-dark
+    style: solarized-light
+    tabWidth: 4
+  tableOfContents:
+    startLevel: 1
+    endLevel: 4
+    ordered: true

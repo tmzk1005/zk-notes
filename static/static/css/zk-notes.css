@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'DejaVuSansMono';
+    src: url('/static/font/DejaVuSansMono.ttf');
+}
+
+.font-DejaVuSansMono {
+    font-family: 'DejaVuSansMono';
+}
+
+.font-zk {
+    font-family: DejaVuSansMono, 'SimSun', 'Songti Sc', 'Noto Serif JCK SC', serif;
+}
+
+.font-zk-sans-serif {
+    font-family: DejaVuSansMono, 'Microsoft YaHei', 'PingFang SC', 'Noto Sans JCK SC', sans-serif;
+}
+
+pre {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overflow: scroll;
+    white-space: pre;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    position: relative;
+}
+
+pre code {
+    display: block;
+    padding: 0.5em 0.5em;
+    white-space: pre;
+    font-size: .875rem;
+    line-height: 1.5;
+    font-family: 'DejaVuSansMono';
+}
+
+.code, code {
+    font-family: 'DejaVuSansMono';
+}
+
+.lh-copy blockquote {
+    display: block;
+    font-size: .875em;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    font-style: oblique;
+    background-color: lightgoldenrodyellow;
+}
+
+ol > li > code {
+    color: purple;
+}
+
+p > code {
+    background-color: bisque;
+    color: purple;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+strong {
+    font-family: DejaVuSansMono, sans-serif;
+    font-weight: 900;
+    color: midnightblue;
+}
+
+.nested-links a:focus, .nested-links a:hover {
+    color: blueviolet;
+    transition: color .15s ease-in;
+}
+
+.nested-links-black a {
+    color: black;
+}
+
+.nested-links-black a:focus, .nested-links-black a:hover {
+    color: blueviolet;
+    transition: color .15s ease-in;
+}
+
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    overflow: auto;
+    page-break-inside: auto;
+    text-align: left;
+    cursor: text;
+}
+
+table th, table td {
+    border: 1px solid;
+    padding: 0.5rem;
+    vertical-align: top;
+}
+
+#TableOfContents ul li {
+    margin-bottom: 1em;
+}
+
+#TableOfContents > ol > li > ol > li {
+    padding-left: 1rem;
+}
+
+#TableOfContents > ol > li > ol > li > ol > li {
+    padding-left: 2rem;
+}
+
+#TableOfContents > ol > li > ol > li > ol > li > ol > li {
+    padding-left: 3rem;
+}
+
+#TableOfContents > ol > li > ol > li > ol > li > ol > li > ol > li {
+    padding-left: 4rem;
+}
+
+#to-top-btn {
+    position: fixed;
+    bottom: 80px;
+    z-index: 2147483647;
+    padding: 10px;
+}
+
+@media screen and (min-width: 1em) {
+    #to-top-btn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    #to-top-btn {
+        display: inline-block;
+        right: 30px;
+    }
+}
+
+@media screen and (min-width: 80em) {
+    #to-top-btn {
+        display: inline-block;
+        right: 50px;
+    }
+}

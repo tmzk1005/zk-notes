@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<div class="w-80 center">
+    <section class="pt3 pb5">
+        {{ range .Pages }}
+        {{- partial "article-title.html" . -}}
+        {{ end }}
+    </section>
+</div>
+
+{{ end }}

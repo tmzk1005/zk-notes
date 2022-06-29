@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <title>{{ .Site.Title }}</title>
+
+    {{ $static := .Site.Data.static }}
+    {{ with $static.css }}
+    {{ range $static.css }}
+    <link href="{{ relURL (.) }}" rel="stylesheet">
+    {{ end }}
+    {{ end }}
+</head>
+
+<body class="ma0 bg-near-white min-vh-100-l font-zk">
+    <div class="min-vh-100-l" style="margin-bottom: -55px; padding-bottom: 155px;">
+        <header>
+            {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
+        </header>
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
+    </div>
+    <div style="height: 55px;">
+        <footer class="h-100">
+            {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
+        </footer>
+    </div>
+    {{ with $static.js }}
+    {{ range $static.js }}
+    <script src="{{ relURL (.) }}"></script>
+    {{ end }}
+    {{ end }}
+
+    <div>
+        <a href="#" id="to-top-btn" title="回到顶部">
+            <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" >
+                <path fill-rule="evenodd"
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 11.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+            </svg>
+        </a>
+    </div>
+</body>
+
+</html>
