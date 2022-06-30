@@ -424,7 +424,7 @@ git checkout -b master origin/master
 
 git commit很简单，这里提到，是因为可能有初学者不知道``--amend`参数，在可以加`--amend`参数的时候尽量加上此参数，减少不必要的commit记录，保持git提交记录的干净整洁。
 
-``--amend`参数可以把本次commit和上次commit合并为一个提交。
+`--amend`参数可以把本次commit和上次commit合并为一个提交。
 
 如果要把本次提交和前n次提交合并为一个提交，可以用 `rebase -i`,这个后面会讲到
 
