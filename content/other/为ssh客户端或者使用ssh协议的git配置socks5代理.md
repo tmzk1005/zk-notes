@@ -1,7 +1,7 @@
 ---
 title: "为ssh客户端或者使用ssh协议的git配置socks5代理"
 date: 2022-06-30T16:47:21+08:00
-draft: true
+draft: false
 toc: false
 tags: []
 ---

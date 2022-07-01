@@ -1,7 +1,7 @@
 ---
 title: "Redis持久化"
 date: 2021-04-05T11:27:39+08:00
-draft: false
+draft: true
 tags: ["redis"]
 toc: false
 ---

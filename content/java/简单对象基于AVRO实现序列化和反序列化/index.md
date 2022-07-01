@@ -1,7 +1,7 @@
 ---
 title: "简单对象基于AVRO实现序列化和反序列化"
 date: 2021-10-27T10:22:39+08:00
-draft: true
+draft: false
 toc: false
 ---
 

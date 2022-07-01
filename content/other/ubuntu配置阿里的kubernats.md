@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu配置阿里的kubernats apt源"
 date: 2021-10-26T10:29:24+08:00
-draft: true
+draft: false
 ---
 
 

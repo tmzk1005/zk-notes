@@ -1,7 +1,7 @@
 ---
 title: "本地搭建kafka离线文档"
 date: 2022-06-25T10:00:00+08:00
-draft: true
+draft: false
 tags: ["java", "kafka"]
 toc: true
 ---
