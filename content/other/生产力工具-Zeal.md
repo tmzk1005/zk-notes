@@ -14,7 +14,7 @@ Linux, Windows, Mac都可以运行。
 一些开源软件虽然有很好的在线文档，但是只能在线看，没有提供PDF或者HTML格式的文档下载（比如Elasticsearch的文档），在没有网络或者网络很差时就看不了。这时
 通过Zeal下载已经打包好的离线文档很就方便了。
 
-Zeal使用起来就点问题，网络不好时下载文档很慢，偶尔会下载到一般中途断线后又从头下载，这种情况下可以自己先手都下载文档，然后导入到Zeal，离线文档的下载地址可以从GitHub上的
+Zeal使用起来有点问题，网络不好时下载文档很慢，偶尔会下载到一半中途断线后又从头下载，这种情况下可以自己先手动下载文档，然后导入到Zeal，离线文档的下载地址可以从GitHub上的
 一个开源项目得到: [https://github.com/kitty-panics/zeal-docs-downloader](https://github.com/kitty-panics/zeal-docs-downloader)
 
 ```sh
