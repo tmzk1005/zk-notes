@@ -19,6 +19,21 @@ tags: []
     "editor.renderWhitespace": "all",
     "workbench.tree.indent": 16,
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "/usr/lib/jvm/java-17-openjdk-amd64",
+            "default": true
+        },
+        {
+            "name": "JavaSE-11",
+            "path": "/usr/lib/jvm/java-11-openjdk-amd64"
+        },
+        {
+            "name": "JavaSE-8",
+            "path": "/usr/lib/jvm/java-8-openjdk-amd64"
+        }
+    ],
     "java.dependency.packagePresentation": "flat",
     "explorer.excludeGitIgnore": true,
     "explorer.fileNesting.enabled": true,
