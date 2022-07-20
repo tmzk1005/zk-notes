@@ -53,12 +53,19 @@ toc: true
 
 ```conf
 server {
-    listen 443;
+    listen 443 ssl;
     server_name localhost;
 
-    ssl on;
+    # 必须
     ssl_certificate server.crt;
     ssl_certificate_key server.key;
+
+    # 若干常见可自定义非必须配置
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 5m;
 
     location / {
         root https_443;
@@ -67,7 +74,7 @@ server {
 }
 ```
 
-`server.crt`就是公钥文件，`server.key`就是私钥文件。
+`server.crt`就是证书文件，`server.key`就是私钥文件。
 
 有时候公钥文件也以“pem”为后缀，因此见到“pem”后缀文件是不要迷惑，它其实就是一个纯文本文件。以”-----BEGIN XXX-----“开头，以“-----END XXX-----”结尾，中间是base64编码的数据。pem是“Privacy Enhanced Mail”的缩写。
 
