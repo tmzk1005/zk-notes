@@ -114,13 +114,13 @@ server_key, 2022年6月17日, PrivateKeyEntry,
 证书指纹 (SHA-256): 90:B3:FE:AD:8F:7E:97:A0:98:8E:A3:E9:94:29:1B:63:1E:A3:72:B8:18:D8:F7:30:17:4B:5D:8B:D4:0A:82:8E
 ```
 
-可以看到名为`server_key`的条目，它包含了服务端的私钥信息，不能暴露给客户端。如果要把这个条目导出到一个单独的文件`server.keypair`，可以使用如下的命令：
+可以看到名为`server_key`的条目，它包含了服务端的私钥信息，不能暴露给客户端。如果要把这个条目导出到一个单独的文件`server.key`，可以使用如下的命令：
 
 ```sh
-keytool -exportcert -keystore server.keystore -storepass server123 -alias server_key -file server.keypair
+keytool -exportcert -keystore server.keystore -storepass server123 -alias server_key -file server.key
 ```
 
-该命令会生成名为`server.keypair`的文件。（生成这个文件不是必须的）
+该命令会生成名为`server.key`的文件。（生成这个文件不是必须的）
 
 ### 服务端使用生成的密钥对信息生成证书请求文件
 
@@ -322,3 +322,55 @@ Received: Hello from SslTcpClient
 # 4 TLSv1.3握手过程分析
 
 **TODO**
+
+# 5. 附：生成配置nginx的证书文件和私钥文件
+
+前面涉及到keytool命令生成的证书文件和密钥文件都不是PEM格式的，而nginx配置ssl相关的证书需要pem格式的文件，需要做一下格式转换才能在配置nginx时使用。
+
+## 5.1 证书文件
+
+- 方法1:
+
+把前面生成`server.cert`的命令加一个`-rfc`的参数即可生成nginx能用的证书文件：
+
+```sh
+keytool -gencert -keystore server.keystore -storepass server123 -alias server_key -infile server.cert.req -rfc -outfile server.cert.pem
+```
+
+- 方法2:
+
+直接用openssl命令转化：
+
+```sh
+openssl x509 -inform der -in server.cert -out server.cert.pem
+```
+
+> 2种方式得到的文件内容不是一模一样的，但是都是正确的，都可以用于配置nginx
+
+## 5.2 私钥文件
+
+前面有个命令生成了`server.key`文件就是私钥文件，但是不能被nginx使用，keytool貌似没有提供命令直接把这个文件转化为pem格式的**私钥文件**（只能转化为证书文件）。要实现
+转化得写java调用JDK里的keytool相关的库才行，另一个可行的办法是用`openssl`命令：
+
+先把`server.keystore`中alias名为的`server_key`这个key抽出来放在单独的pkcs12格式的文件`server.key.p12`
+
+    ```sh
+keytool -importkeystore -srckeystore server.keystore -srcstorepass server123 -srcstoretype jks -srcalias server_key -destkeystore server.key.p12 -deststoretype PKCS12 -destalias server_key -deststorepass server789
+    ```
+
+再用openssl命令：
+
+```sh
+# 命令帮助: openssl pkcs12 -help
+openssl pkcs12 -in server.key.p12 -noenc -nocerts -out server.key.pem
+# 会要求输入密码，输入前面的命令设置的密码：server789
+```
+
+## 5.3 配置nginx
+
+最后得到的文件`server.cert.pem`和`server.key.pem`可以用于配置nginx：
+
+```
+ssl_certificate /path/to/server.cert.pem;
+ssl_certificate_key /path/to/server.key.pem;
+```
