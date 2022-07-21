@@ -85,6 +85,39 @@ body {
 .monaco-list {
     font-family: "DejaVu Sans Mono";
 }
+
+.input {
+    font-family: "DejaVu Sans Mono";
+}
+
+.monaco-workbench input {
+    color: inherit;
+    font-family: "DejaVu Sans Mono";
+    font-size: 100%
+}
+
+.monaco-workbench select {
+    font-family: "DejaVu Sans Mono";
+}
+
+.label-name {
+    font-family: "DejaVu Sans Mono";
+}
+
+inputbox .input {
+    font-family: "DejaVu Sans Mono";
+    font-size: 1.5rem;
+}
+
+.monaco-inputbox > .ibwrapper > .input {
+    font-family: "DejaVu Sans Mono";
+    font-size: 1.5rem;
+}
+
+.view-line, .view-lines {
+    font-family: "DejaVu Sans Mono";
+}
+
 ```
 
 然后用户空间配置：

@@ -354,9 +354,9 @@ openssl x509 -inform der -in server.cert -out server.cert.pem
 
 先把`server.keystore`中alias名为的`server_key`这个key抽出来放在单独的pkcs12格式的文件`server.key.p12`
 
-    ```sh
+```sh
 keytool -importkeystore -srckeystore server.keystore -srcstorepass server123 -srcstoretype jks -srcalias server_key -destkeystore server.key.p12 -deststoretype PKCS12 -destalias server_key -deststorepass server789
-    ```
+```
 
 再用openssl命令：
 
